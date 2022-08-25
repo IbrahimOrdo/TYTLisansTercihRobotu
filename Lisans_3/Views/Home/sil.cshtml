@@ -1,0 +1,195 @@
+﻿@model IEnumerable<Lisans_3.Models.Lisan>
+
+@{
+    ViewBag.Title = "sil";
+}
+
+<h2>sil</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SonucID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sehir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversiteAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FakulteAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BolumAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BolumDetay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PuanTuru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenimDili)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenimTuru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Burs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.B_Sira_2020)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.B_Sira_2019)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.B_Sira_2018)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kontenjan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kon_2021)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kont_2020)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KonDegisimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OzelKosulveAciklamalar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BolumID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DilId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BursID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatuID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TurID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SonucID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sehir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Statu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversiteAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FakulteAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BolumAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BolumDetay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuanTuru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenimDili)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenimTuru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Burs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.B_Sira_2020)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.B_Sira_2019)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.B_Sira_2018)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kontenjan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kon_2021)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kont_2020)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KonDegisimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OzelKosulveAciklamalar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ilid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BolumID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DilId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BursID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatuID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TurID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

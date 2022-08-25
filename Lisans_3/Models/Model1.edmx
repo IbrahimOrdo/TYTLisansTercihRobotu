@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TYT_LisansModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bolum_Tur_Lisans">
+          <Key>
+            <PropertyRef Name="BolumTurID" />
+          </Key>
+          <Property Name="BolumTurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BolumTurAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Bolumler_Lisans_Uni">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BolumAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UniId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="ilid" />
+          </Key>
+          <Property Name="ilid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sehir" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Lisans">
+          <Key>
+            <PropertyRef Name="SonucID" />
+          </Key>
+          <Property Name="SonucID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramKodu" Type="int" />
+          <Property Name="Sehir" Type="nvarchar" MaxLength="50" />
+          <Property Name="Statu" Type="nvarchar" MaxLength="50" />
+          <Property Name="UniversiteAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="FakulteAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BolumAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BolumDetay" Type="nvarchar" MaxLength="50" />
+          <Property Name="PuanTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="OgrenimDili" Type="nvarchar" MaxLength="50" />
+          <Property Name="OgrenimTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="Burs" Type="nvarchar" MaxLength="50" />
+          <Property Name="B_Sira_2020" Type="int" />
+          <Property Name="B_Sira_2019" Type="nvarchar" MaxLength="50" />
+          <Property Name="B_Sira_2018" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kontenjan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kon_2021" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kont_2020" Type="nvarchar" MaxLength="50" />
+          <Property Name="KonDegisimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OzelKosulveAciklamalar" Type="nvarchar" MaxLength="50" />
+          <Property Name="ilid" Type="int" />
+          <Property Name="UniID" Type="int" />
+          <Property Name="BolumID" Type="int" />
+          <Property Name="DilId" Type="int" />
+          <Property Name="PTid" Type="int" />
+          <Property Name="BursID" Type="int" />
+          <Property Name="StatuID" Type="int" />
+          <Property Name="TurID" Type="int" />
+        </EntityType>
+        <EntityType Name="Universiteler_Lisans">
+          <Key>
+            <PropertyRef Name="UniID" />
+          </Key>
+          <Property Name="UniID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UniversiteAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ilid" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TYT_Lisans.dbo.TopluViewLisans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TopluViewLisans">
+          <Key>
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="UniId" />
+          </Key>
+          <Property Name="ProgramKodu" Type="int" />
+          <Property Name="Sehir" Type="nvarchar" MaxLength="50" />
+          <Property Name="Statu" Type="nvarchar" MaxLength="50" />
+          <Property Name="UniversiteAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="FakulteAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BolumAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BolumDetay" Type="nvarchar" MaxLength="50" />
+          <Property Name="PuanTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="OgrenimDili" Type="nvarchar" MaxLength="50" />
+          <Property Name="OgrenimTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="Burs" Type="nvarchar" MaxLength="50" />
+          <Property Name="B_Sira_2020" Type="nvarchar" MaxLength="50" />
+          <Property Name="B_Sira_2019" Type="nvarchar" MaxLength="50" />
+          <Property Name="B_Sira_2018" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kontenjan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kon_2021" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kont_2020" Type="nvarchar" MaxLength="50" />
+          <Property Name="KonDegisimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OzelKosulveAciklamalar" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UniId" Type="int" Nullable="false" />
+          <Property Name="Expr2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ilid" Type="int" />
+          <Property Name="Expr3" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Bolumler_Universiteler">
+          <End Role="Universiteler_Lisans" Type="Self.Universiteler_Lisans" Multiplicity="1" />
+          <End Role="Bolumler_Lisans_Uni" Type="Self.Bolumler_Lisans_Uni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universiteler_Lisans">
+              <PropertyRef Name="UniID" />
+            </Principal>
+            <Dependent Role="Bolumler_Lisans_Uni">
+              <PropertyRef Name="UniId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Universiteler_iller">
+          <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+          <End Role="Universiteler_Lisans" Type="Self.Universiteler_Lisans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="ilid" />
+            </Principal>
+            <Dependent Role="Universiteler_Lisans">
+              <PropertyRef Name="ilid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TYT_LisansModelStoreContainer">
+          <EntitySet Name="Bolum_Tur_Lisans" EntityType="Self.Bolum_Tur_Lisans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bolumler_Lisans_Uni" EntityType="Self.Bolumler_Lisans_Uni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lisans" EntityType="Self.Lisans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Universiteler_Lisans" EntityType="Self.Universiteler_Lisans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TopluViewLisans" EntityType="Self.TopluViewLisans" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TopluViewLisans].[ProgramKodu] AS [ProgramKodu], 
+    [TopluViewLisans].[Sehir] AS [Sehir], 
+    [TopluViewLisans].[Statu] AS [Statu], 
+    [TopluViewLisans].[UniversiteAdi] AS [UniversiteAdi], 
+    [TopluViewLisans].[FakulteAdi] AS [FakulteAdi], 
+    [TopluViewLisans].[BolumAdi] AS [BolumAdi], 
+    [TopluViewLisans].[BolumDetay] AS [BolumDetay], 
+    [TopluViewLisans].[PuanTuru] AS [PuanTuru], 
+    [TopluViewLisans].[OgrenimDili] AS [OgrenimDili], 
+    [TopluViewLisans].[OgrenimTuru] AS [OgrenimTuru], 
+    [TopluViewLisans].[Burs] AS [Burs], 
+    [TopluViewLisans].[B_Sira_2020] AS [B_Sira_2020], 
+    [TopluViewLisans].[B_Sira_2019] AS [B_Sira_2019], 
+    [TopluViewLisans].[B_Sira_2018] AS [B_Sira_2018], 
+    [TopluViewLisans].[Kontenjan] AS [Kontenjan], 
+    [TopluViewLisans].[Kon_2021] AS [Kon_2021], 
+    [TopluViewLisans].[Kont_2020] AS [Kont_2020], 
+    [TopluViewLisans].[KonDegisimi] AS [KonDegisimi], 
+    [TopluViewLisans].[OzelKosulveAciklamalar] AS [OzelKosulveAciklamalar], 
+    [TopluViewLisans].[Expr1] AS [Expr1], 
+    [TopluViewLisans].[UniId] AS [UniId], 
+    [TopluViewLisans].[Expr2] AS [Expr2], 
+    [TopluViewLisans].[ilid] AS [ilid], 
+    [TopluViewLisans].[Expr3] AS [Expr3]
+    FROM [dbo].[TopluViewLisans] AS [TopluViewLisans]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Bolumler_Universiteler" Association="Self.FK_Bolumler_Universiteler">
+            <End Role="Universiteler_Lisans" EntitySet="Universiteler_Lisans" />
+            <End Role="Bolumler_Lisans_Uni" EntitySet="Bolumler_Lisans_Uni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Universiteler_iller" Association="Self.FK_Universiteler_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="Universiteler_Lisans" EntitySet="Universiteler_Lisans" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TYT_LisansModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bolum_Tur_Lisans">
+          <Key>
+            <PropertyRef Name="BolumTurID" />
+          </Key>
+          <Property Name="BolumTurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BolumTurAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bolumler_Lisans_Uni">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UniId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Universiteler_Lisans" Relationship="Self.FK_Bolumler_Universiteler" FromRole="Bolumler_Lisans_Uni" ToRole="Universiteler_Lisans" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="ilid" />
+          </Key>
+          <Property Name="ilid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Universiteler_Lisans" Relationship="Self.FK_Universiteler_iller" FromRole="iller" ToRole="Universiteler_Lisans" />
+        </EntityType>
+        <EntityType Name="Lisan">
+          <Key>
+            <PropertyRef Name="SonucID" />
+          </Key>
+          <Property Name="SonucID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramKodu" Type="Int32" />
+          <Property Name="Sehir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Statu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UniversiteAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FakulteAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BolumDetay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PuanTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenimDili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenimTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Burs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="B_Sira_2020" Type="Int32" />
+          <Property Name="B_Sira_2019" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="B_Sira_2018" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kontenjan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kon_2021" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kont_2020" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KonDegisimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OzelKosulveAciklamalar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ilid" Type="Int32" />
+          <Property Name="UniID" Type="Int32" />
+          <Property Name="BolumID" Type="Int32" />
+          <Property Name="DilId" Type="Int32" />
+          <Property Name="PTid" Type="Int32" />
+          <Property Name="BursID" Type="Int32" />
+          <Property Name="StatuID" Type="Int32" />
+          <Property Name="TurID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Universiteler_Lisans">
+          <Key>
+            <PropertyRef Name="UniID" />
+          </Key>
+          <Property Name="UniID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UniversiteAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ilid" Type="Int32" />
+          <NavigationProperty Name="Bolumler_Lisans_Uni" Relationship="Self.FK_Bolumler_Universiteler" FromRole="Universiteler_Lisans" ToRole="Bolumler_Lisans_Uni" />
+          <NavigationProperty Name="iller" Relationship="Self.FK_Universiteler_iller" FromRole="Universiteler_Lisans" ToRole="iller" />
+        </EntityType>
+        <EntityType Name="TopluViewLisan">
+          <Key>
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="UniId" />
+          </Key>
+          <Property Name="ProgramKodu" Type="Int32" />
+          <Property Name="Sehir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Statu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UniversiteAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FakulteAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BolumDetay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PuanTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenimDili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenimTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Burs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="B_Sira_2020" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="B_Sira_2019" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="B_Sira_2018" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kontenjan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kon_2021" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kont_2020" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KonDegisimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OzelKosulveAciklamalar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UniId" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ilid" Type="Int32" />
+          <Property Name="Expr3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Bolumler_Universiteler">
+          <End Role="Universiteler_Lisans" Type="Self.Universiteler_Lisans" Multiplicity="1" />
+          <End Role="Bolumler_Lisans_Uni" Type="Self.Bolumler_Lisans_Uni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universiteler_Lisans">
+              <PropertyRef Name="UniID" />
+            </Principal>
+            <Dependent Role="Bolumler_Lisans_Uni">
+              <PropertyRef Name="UniId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Universiteler_iller">
+          <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+          <End Role="Universiteler_Lisans" Type="Self.Universiteler_Lisans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="ilid" />
+            </Principal>
+            <Dependent Role="Universiteler_Lisans">
+              <PropertyRef Name="ilid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TYT_LisansEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bolum_Tur_Lisans" EntityType="Self.Bolum_Tur_Lisans" />
+          <EntitySet Name="Bolumler_Lisans_Uni" EntityType="Self.Bolumler_Lisans_Uni" />
+          <EntitySet Name="illers" EntityType="Self.iller" />
+          <EntitySet Name="Lisans" EntityType="Self.Lisan" />
+          <EntitySet Name="Universiteler_Lisans" EntityType="Self.Universiteler_Lisans" />
+          <EntitySet Name="TopluViewLisans" EntityType="Self.TopluViewLisan" />
+          <AssociationSet Name="FK_Bolumler_Universiteler" Association="Self.FK_Bolumler_Universiteler">
+            <End Role="Universiteler_Lisans" EntitySet="Universiteler_Lisans" />
+            <End Role="Bolumler_Lisans_Uni" EntitySet="Bolumler_Lisans_Uni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Universiteler_iller" Association="Self.FK_Universiteler_iller">
+            <End Role="iller" EntitySet="illers" />
+            <End Role="Universiteler_Lisans" EntitySet="Universiteler_Lisans" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TYT_LisansModelStoreContainer" CdmEntityContainer="TYT_LisansEntities1">
+          <EntitySetMapping Name="Bolum_Tur_Lisans">
+            <EntityTypeMapping TypeName="TYT_LisansModel.Bolum_Tur_Lisans">
+              <MappingFragment StoreEntitySet="Bolum_Tur_Lisans">
+                <ScalarProperty Name="BolumTurID" ColumnName="BolumTurID" />
+                <ScalarProperty Name="BolumTurAdi" ColumnName="BolumTurAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bolumler_Lisans_Uni">
+            <EntityTypeMapping TypeName="TYT_LisansModel.Bolumler_Lisans_Uni">
+              <MappingFragment StoreEntitySet="Bolumler_Lisans_Uni">
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+                <ScalarProperty Name="UniId" ColumnName="UniId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="illers">
+            <EntityTypeMapping TypeName="TYT_LisansModel.iller">
+              <MappingFragment StoreEntitySet="iller">
+                <ScalarProperty Name="ilid" ColumnName="ilid" />
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lisans">
+            <EntityTypeMapping TypeName="TYT_LisansModel.Lisan">
+              <MappingFragment StoreEntitySet="Lisans">
+                <ScalarProperty Name="SonucID" ColumnName="SonucID" />
+                <ScalarProperty Name="ProgramKodu" ColumnName="ProgramKodu" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="UniversiteAdi" ColumnName="UniversiteAdi" />
+                <ScalarProperty Name="FakulteAdi" ColumnName="FakulteAdi" />
+                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+                <ScalarProperty Name="BolumDetay" ColumnName="BolumDetay" />
+                <ScalarProperty Name="PuanTuru" ColumnName="PuanTuru" />
+                <ScalarProperty Name="OgrenimDili" ColumnName="OgrenimDili" />
+                <ScalarProperty Name="OgrenimTuru" ColumnName="OgrenimTuru" />
+                <ScalarProperty Name="Burs" ColumnName="Burs" />
+                <ScalarProperty Name="B_Sira_2020" ColumnName="B_Sira_2020" />
+                <ScalarProperty Name="B_Sira_2019" ColumnName="B_Sira_2019" />
+                <ScalarProperty Name="B_Sira_2018" ColumnName="B_Sira_2018" />
+                <ScalarProperty Name="Kontenjan" ColumnName="Kontenjan" />
+                <ScalarProperty Name="Kon_2021" ColumnName="Kon_2021" />
+                <ScalarProperty Name="Kont_2020" ColumnName="Kont_2020" />
+                <ScalarProperty Name="KonDegisimi" ColumnName="KonDegisimi" />
+                <ScalarProperty Name="OzelKosulveAciklamalar" ColumnName="OzelKosulveAciklamalar" />
+                <ScalarProperty Name="ilid" ColumnName="ilid" />
+                <ScalarProperty Name="UniID" ColumnName="UniID" />
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="DilId" ColumnName="DilId" />
+                <ScalarProperty Name="PTid" ColumnName="PTid" />
+                <ScalarProperty Name="BursID" ColumnName="BursID" />
+                <ScalarProperty Name="StatuID" ColumnName="StatuID" />
+                <ScalarProperty Name="TurID" ColumnName="TurID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universiteler_Lisans">
+            <EntityTypeMapping TypeName="TYT_LisansModel.Universiteler_Lisans">
+              <MappingFragment StoreEntitySet="Universiteler_Lisans">
+                <ScalarProperty Name="UniID" ColumnName="UniID" />
+                <ScalarProperty Name="UniversiteAdi" ColumnName="UniversiteAdi" />
+                <ScalarProperty Name="ilid" ColumnName="ilid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TopluViewLisans">
+            <EntityTypeMapping TypeName="TYT_LisansModel.TopluViewLisan">
+              <MappingFragment StoreEntitySet="TopluViewLisans">
+                <ScalarProperty Name="ProgramKodu" ColumnName="ProgramKodu" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="UniversiteAdi" ColumnName="UniversiteAdi" />
+                <ScalarProperty Name="FakulteAdi" ColumnName="FakulteAdi" />
+                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+                <ScalarProperty Name="BolumDetay" ColumnName="BolumDetay" />
+                <ScalarProperty Name="PuanTuru" ColumnName="PuanTuru" />
+                <ScalarProperty Name="OgrenimDili" ColumnName="OgrenimDili" />
+                <ScalarProperty Name="OgrenimTuru" ColumnName="OgrenimTuru" />
+                <ScalarProperty Name="Burs" ColumnName="Burs" />
+                <ScalarProperty Name="B_Sira_2020" ColumnName="B_Sira_2020" />
+                <ScalarProperty Name="B_Sira_2019" ColumnName="B_Sira_2019" />
+                <ScalarProperty Name="B_Sira_2018" ColumnName="B_Sira_2018" />
+                <ScalarProperty Name="Kontenjan" ColumnName="Kontenjan" />
+                <ScalarProperty Name="Kon_2021" ColumnName="Kon_2021" />
+                <ScalarProperty Name="Kont_2020" ColumnName="Kont_2020" />
+                <ScalarProperty Name="KonDegisimi" ColumnName="KonDegisimi" />
+                <ScalarProperty Name="OzelKosulveAciklamalar" ColumnName="OzelKosulveAciklamalar" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="UniId" ColumnName="UniId" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="ilid" ColumnName="ilid" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

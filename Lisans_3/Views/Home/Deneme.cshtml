@@ -1,0 +1,248 @@
+﻿
+@{
+    ViewBag.Title = "Deneme";
+    var sonListe = ViewData["Sonuc"] as Lisans_3.Models.Lisan;
+
+
+}
+
+@model Lisans_3.Models.Class1
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script>
+    $(function () {
+        $('#ilid').change(function () {
+            var id = $('#ilid').val();
+            $.ajax({
+                url: '/Home/unigetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#UniID').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#UniID').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        $('#UniID').change(function () {
+            var id = $('#UniID').val();
+            $.ajax({
+                url: '/Home/bolumgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#BolumID').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#BolumID').append("<option value='" + data[i].Value + "'>"
+                            + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<div class="container">
+    <h1>TYT Üniversite Tercih Robotu</h1>
+</div>
+
+<div class="container">
+    @using (Html.BeginForm("Deneme", "Home", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Şehirler</h3>
+                @Html.DropDownList("ilid", Model.SehirlerList, "Lütfen İl Seçiniz!", htmlAttributes: new { @class = "form control" });
+            </div>
+
+            <div class="col-md-4">
+                <h3>Üniversiteler</h3>
+                @Html.DropDownList("UniID", Model.UniversitelerList, "Lütfen Üniversite Seçiniz!", htmlAttributes: new { @class = "form control" });
+            </div>
+
+            <div class="col-md-4">
+                <h3>Bölümler</h3>
+                @Html.DropDownList("BolumID", Model.BolumlerList, "Lütfen Bölüm Seçiniz!", htmlAttributes: new { @class = "form control" });
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <h4>Puan Türü</h4>
+                    <div>@Html.RadioButton("PT", "1") <label>Sayısal</label></div>
+                    <div>@Html.RadioButton("PT", "2") <label>Eşit Ağırlık</label></div>
+                    <div>@Html.RadioButton("PT", "3") <label>Sözel</label></div>
+                    <div>@Html.RadioButton("PT", "4") <label>Dil</label></div>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>Burslar</h4>
+                    <div><input id="1" type="checkbox" name="cb" /> <label>Ücretli </label> </div>
+                    <div><input id="2" type="checkbox" name="cb" /> <label>%25 </label></div>
+                    <div><input id="3" type="checkbox" name="cb" /> <label>%50 </label></div>
+                    <div><input id="4" type="checkbox" name="cb" /> <label>%75 </label></div>
+                    <div><input id="5" type="checkbox" name="cb" /> <label>%100 </label></div>
+                    <div><input id="6" type="checkbox" name="cb" /> <label>Örgün </label></div>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>Eğitim Dili</h4>
+                    <div>@Html.RadioButton("Dil", "1") <label>Türkçe</label></div>
+                    <div>@Html.RadioButton("Dil", "2") <label>İngilizce</label></div>
+                    <div>@Html.RadioButton("Dil", "3") <label>Fransızca</label></div>
+                    <div>@Html.RadioButton("Dil", "4") <label>Rusça</label></div>
+                    <div>@Html.RadioButton("Dil", "5") <label>Almanca</label></div>
+                    <div>@Html.RadioButton("Dil", "6") <label>Arapça</label></div>
+                    <div>@Html.RadioButton("Dil", "7") <label>Bulgarca</label></div>
+                    <div>@Html.RadioButton("Dil", "8") <label>Çince</label></div>
+                    <div>@Html.RadioButton("Dil", "9") <label>Ermenice</label></div>
+                    <div>@Html.RadioButton("Dil", "10") <label>İngilizce-Fransızca</label></div>
+                    <div>@Html.RadioButton("Dil", "11") <label>İspanyolca</label></div>
+                    <div>@Html.RadioButton("Dil", "12") <label>İtalyanca</label></div>
+                    <div>@Html.RadioButton("Dil", "13") <label>Lehçe</label></div>
+                    <div>@Html.RadioButton("Dil", "14") <label>Türkçe-Rusça</label></div>
+                    <div>@Html.RadioButton("Dil", "15") <label>Korece</label></div>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>Eğitim Türü</h4>
+                    <div>@Html.RadioButton("Statu", "1") <label>DEVLET</label></div>
+                    <div>@Html.RadioButton("Statu", "2") <label>VAKIF</label></div>
+                    <div>@Html.RadioButton("Statu", "3") <label>KKTC</label></div>
+                    <div>@Html.RadioButton("Statu", "4") <label>KKTC U</label></div>
+                    <div>@Html.RadioButton("Statu", "5") <label>YURTDIŞI</label></div>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>Öğrenim Türü</h4>
+                    <div>@Html.RadioButton("Tur", "1") <label>Örgün Öğrenim</label></div>
+                    <div>@Html.RadioButton("Tur", "2") <label>İkinci Öğretim</label></div>
+                    <div>@Html.RadioButton("Tur", "3") <label>Açık Öğretim Fakültesi</label></div>
+                    <div>@Html.RadioButton("Tur", "4") <label>Uzaktan Öğrenim</label></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h4>
+                    Sıralama Aralığı
+                </h4>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <input placeholder="Tavan Sıralama" name="MaxSiralama" id="MaxSiralamaid" type="text" />
+                    <input placeholder="Taban Sıralama" name="MinSiralama" id="MinSiralamaid" type="text" />
+                </div>
+                <div class="col-md-2">
+                    <input placeholder="İstenilen tercih adedini giriniz!" id="Adet" type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <input id="Ara" type="submit" value="Ara" name="BlockBtn" />
+            <input id="Sifirla" type="submit" value="Sifirla" name="BlockBtn" />
+            <input id="Excel" type="submit" value="Excel İndir" name="BlockBtn" />
+            <input id="Pdf" type="submit" value="Pdf İndir" name="BlockBtn" />
+            <a href="#">Tercih Listem Sayfası</a>
+        </div>
+    }
+</div>
+<br />
+
+<table class="table table-responsive">
+    <tr>
+        <th>
+            Ekle/Çıkar
+        </th>
+        <th>
+            ProgramKodu
+        </th>
+        <th>
+            Sehir
+        </th>
+        <th>
+            Statu
+        </th>
+        <th>
+            UniversiteAdi
+        </th>
+        <th>
+            FakulteAdi
+        </th>
+        <th>
+            BolumDetay
+        </th>
+        <th>
+            PuanTuru
+        </th>
+        <th>
+            OgrenimTuru
+        </th>
+        <th>
+            B_Sira_2020
+        </th>
+        <th>
+            Kon_2021
+        </th>
+    </tr>
+
+    @foreach (var item in ViewData["Sonuc"] as IEnumerable<Lisans_3.Models.Lisan>)
+    {
+        <tr>
+            <td>
+                @Html.CheckBox("Ekle");
+            </td>
+            <td>
+                @item.ProgramKodu
+            </td>
+            <td>
+                @item.Sehir
+            </td>
+            <td>
+                @item.Statu
+            </td>
+            <td>
+                @item.UniversiteAdi
+            </td>
+            <td>
+                @item.FakulteAdi
+            </td>
+            <td>
+                @item.BolumDetay
+            </td>
+            <td>
+                @item.PuanTuru
+            </td>
+            <td>
+                @item.OgrenimTuru
+            </td>
+            <td>
+                @item.B_Sira_2020
+            </td>
+            <td>
+                @item.Kon_2021
+            </td>
+        </tr>
+    }
+
+</table>
+
+
